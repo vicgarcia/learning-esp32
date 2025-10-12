@@ -44,7 +44,7 @@ class RGBLED:
         self._green.freq(self.freq_hz)
         self._blue = PWM(Pin(blue_pin_number))
         self._blue.freq(self.freq_hz)
-        self.off()
+        self.set_color(0, 0, 0)
 
     def _calc_duty_cycle(self, color_value):
         # expects a color value from 0 - 255
@@ -71,9 +71,6 @@ class RGBLED:
     def blue(self):
         self.set_color(0, 0, 255)
 
-    def yellow(self):
-        self.set_color(255, 255, 0)
-
 
 class Button:
 
@@ -97,7 +94,3 @@ class Button:
         # handler is a function that accepts an argument
         trigger = Pin.IRQ_FALLING if self.press_value == 0 else Pin.IRQ_RISING
         self.pin.irq(trigger=trigger, handler=handler)
-
-
-
-
