@@ -4,12 +4,24 @@ from components import Button, RGBLED
 
 class ColorCycleButton:
 
-    def __init__(self):
-        # button is on GPIO 4
-        self.button = Button(4)
-        # rgb led is on 13 (R), 12 (G), 14, (B)
-        self.led = RGBLED(13, 12, 14)
-        # sequence of functions to call
+    def __init__(self,
+        button_pin_number,
+        red_pin_number,
+        green_pin_number,
+        blue_pin_number,
+    ):
+
+        # setup the button
+        self.button = Button(button_pin_number)
+
+        # setup the rgb led
+        self.led = RGBLED(
+            red_pin_number,
+            green_pin_number,
+            blue_pin_number,
+        )
+
+        # sequence of functions to call on button press
         self.sequence_index = 0
         self.sequence = [
             self.led.off,

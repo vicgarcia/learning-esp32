@@ -1,4 +1,9 @@
 
+## What You Need
+
+The kit instructions provide some insight into the components. It has good information on the ESP32 and series of tutorials using the various components in the kit.
+
+https://www.dropbox.com/scl/fo/6znlij3eb23ih4jxcpv2w/AKvB1t9CCUgoVRVtGen8Yrw?rlkey=z84anl0hs940qf9fpl7l8q8q2
 
 ## Getting Started
 
@@ -37,14 +42,9 @@ Then enter the REPL
 picocom /dev/ttyUSB0 -b115200
 ```
 
-
-
 You can exit with `ctrl` + `a` then `ctrl` + `x`
 
-
-
 https://docs.micropython.org/en/latest/esp32/quickref.html
-
 
 MPY Workbench extension for VS Code
 

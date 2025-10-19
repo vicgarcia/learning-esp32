@@ -2,9 +2,9 @@
 # make the LED on the board blink
 
 # from machine import Timer
-# from components import OnboardLED
+# from components import LED
 
-# led = OnboardLED()
+# led = LED()
 
 # timer = Timer(0)
 
@@ -17,9 +17,9 @@
 # toggle the LED on the board with the button
 
 # import time
-# from components import Button, OnboardLED
+# from components import Button, LED
 
-# led = OnboardLED()
+# led = LED()
 
 # def handler():
 #     led.toggle()
@@ -31,9 +31,14 @@
 #     time.sleep(1)
 
 
-# cycle LED red/blue/green/off when pressing the button
+# cycle RGB LED red/blue/green/off when pressing the button
 
 from app import ColorCycleButton
 
-color_cycle_button_app = ColorCycleButton()
+color_cycle_button_app = ColorCycleButton(
+    button_pin_number=,
+    red_pin_number=,
+    blue_pin_number=,
+    green_pin_number=,
+)
 color_cycle_button_app.run()

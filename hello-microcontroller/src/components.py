@@ -3,7 +3,8 @@ from machine import Pin, PWM
 
 class LED:
 
-    def __init__(self, pin_number):
+    # the onboard LED is on GPIO pin 2
+    def __init__(self, pin_number=2):
         self.pin = Pin(pin_number, Pin.OUT)
         self.state = 0
         self._update()
@@ -24,18 +25,15 @@ class LED:
         self._update()
 
 
-class OnboardLED(LED):
-
-    def __init__(self):
-        # the onboard LED is on GPIO pin 2
-        self.pin = Pin(2, Pin.OUT)
-        # set the state
-        self.state = 0
-
-
 class RGBLED:
 
-    def __init__(self, red_pin_number, green_pin_number, blue_pin_number, freq_hz=1000, max_duty=1023):
+    def __init__(self,
+        red_pin_number=0,
+        green_pin_number=0,
+        blue_pin_number=0,
+        freq_hz=1000,
+        max_duty=1023,
+    ):
         self.freq_hz = freq_hz      # 1000Hz is standard for PWN
         self.max_duty = max_duty    # ESP32 uses 10bit PWM (0-1023)
         self._red = PWM(Pin(red_pin_number))
@@ -88,7 +86,7 @@ class Button:
 
     def callback(self, callback_func):
         # wrap the callback function in a handler function to handle argument
-        # this allows the callback function to disregard the argument 
+        # this allows the callback function to disregard the argument
         def handler(pin):
             callback_func()
         # handler is a function that accepts an argument
