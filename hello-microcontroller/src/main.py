@@ -36,9 +36,9 @@
 from app import ColorCycleButton
 
 color_cycle_button_app = ColorCycleButton(
-    button_pin_number=,
-    red_pin_number=,
-    blue_pin_number=,
-    green_pin_number=,
+    button_pin_number=4,
+    red_pin_number=13,
+    blue_pin_number=14,
+    green_pin_number=12,
 )
 color_cycle_button_app.run()
